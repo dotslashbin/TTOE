@@ -1,4 +1,9 @@
 export default class Judge {
+	/**
+	 * Returns the winning character (x or o)
+	 * @param gameState
+	 * @returns
+	 */
 	GetWinner(gameState: any): string | null {
 		const lines = [
 			[0, 1, 2],
