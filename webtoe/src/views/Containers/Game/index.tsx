@@ -1,20 +1,32 @@
 import React, { useState } from 'react'
 import Table from '../../Table'
 
-import { calculateWinner } from '../../../utilities/Judge'
+import Judge from '../../../services/Judge'
+
+let initialgameState: any[] = []
+
+const judge = new Judge()
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 const Game = () => {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const [gameStarted, setGameStarted] = useState(false)
-	const [gameState, setGameState] = useState([])
 
+	const [gameState, setGameState] = useState(initialgameState)
 	const handleControlButton = () => {
 		setGameStarted(!gameStarted)
 	}
 
 	const updateGameState = (cellId: number, value: string) => {
-		console.log(cellId, value)
+		let updatedState = gameState
+		const index = cellId - 1 
+		updatedState[index] = value
+		setGameState(updatedState)
+
+		let result = judge.GetWinner(gameState)
+		if(result) {
+			alert(result)
+		}
 	}
 
 	return (
