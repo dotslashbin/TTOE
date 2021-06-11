@@ -4,9 +4,8 @@ import React from 'react'
 import Cell from '../Cell'
 
 const style = {
-	border: '4px solid black',
-	width: '250px',
-	height: '250px',
+	width: '500px',
+	height: '500px',
 	margin: '0 auto',
 	display: 'grid',
 	gridTemplate: 'repeat(3, 1fr) / repeat(3, 1fr)'
