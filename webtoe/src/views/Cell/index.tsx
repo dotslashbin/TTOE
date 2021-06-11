@@ -5,18 +5,18 @@ const style = {
 	height: '50px',
 };
 
-const Cell = () => {
+const Cell = (props: any) => {
 	const [cellValue, setCellValue] = useState('')
 
 	function handleClick(value: string) {
 		setCellValue(value)
+		props.gameUpdate(props.id, value)
 	}
 
 	return (
 		<div style={style}>
 			<h1>{cellValue}</h1>
 			<button onClick={handleClick.bind(this, 'x')}>X</button>
-			<button onClick={handleClick.bind(this, 'o')}>0</button>
 		</div>
 	)
 }
