@@ -12,13 +12,11 @@ const style = {
 };
 
 
-const Table = () => {
-
+const Table = (props: any) => {
 	const cellCounter = Array.from({length:9},(v,k)=>k+1)
-
 	return (
 		<div style={style}>
-			{cellCounter.map((key, value) =>(<Cell />))}
+			{cellCounter.map((key, value) =>(<Cell id={key} gameUpdate={props.gameUpdate}/>))}
 		</div>
 	)
 }
